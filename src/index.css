@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/big-shoulders/opsz.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Big Shoulders Variable', 'Archivo Variable', ui-sans-serif, sans-serif;
+    --font-heading: var(--font-display);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-venue: var(--venue);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Light: a bright training gym. The venue colour matches the 3D scene's
+   background so the canvas has no visible edge. */
+:root {
+    --venue: #e3e4e8;
+    --background: #eceef1;
+    --foreground: #15171c;
+    --card: #f6f7f9;
+    --card-foreground: #15171c;
+    --popover: #ffffff;
+    --popover-foreground: #15171c;
+    --primary: #15171c;
+    --primary-foreground: #f6f7f9;
+    --secondary: #dfe1e6;
+    --secondary-foreground: #15171c;
+    --muted: #e1e3e8;
+    --muted-foreground: #565a64;
+    --accent: #dcdfe4;
+    --accent-foreground: #15171c;
+    --destructive: #c4372f;
+    --border: rgb(16 19 25 / 0.12);
+    --input: rgb(16 19 25 / 0.18);
+    --ring: #5b6170;
+    --chart-1: #2a78d6;
+    --chart-2: #eb6834;
+    --chart-3: #1baf7a;
+    --chart-4: #eda100;
+    --chart-5: #e87ba4;
+    --radius: 0.5rem;
+    --sidebar: #f6f7f9;
+    --sidebar-foreground: #15171c;
+    --sidebar-primary: #15171c;
+    --sidebar-primary-foreground: #f6f7f9;
+    --sidebar-accent: #dcdfe4;
+    --sidebar-accent-foreground: #15171c;
+    --sidebar-border: rgb(16 19 25 / 0.12);
+    --sidebar-ring: #5b6170;
+}
+
+/* Dark: the venue at night, rings under warm overhead light. Primary actions
+   wear the spotlight's warm white rather than an accent hue, because colour
+   on this page always means a fighter. */
+.dark {
+    --venue: #101319;
+    --background: #101319;
+    --foreground: #ecebe6;
+    --card: #141820;
+    --card-foreground: #ecebe6;
+    --popover: #181c25;
+    --popover-foreground: #ecebe6;
+    --primary: #f1ede4;
+    --primary-foreground: #101319;
+    --secondary: #1e232c;
+    --secondary-foreground: #ecebe6;
+    --muted: #1b2028;
+    --muted-foreground: #9c9a92;
+    --accent: #222833;
+    --accent-foreground: #ecebe6;
+    --destructive: #e5484d;
+    --border: rgb(255 255 255 / 0.08);
+    --input: rgb(255 255 255 / 0.13);
+    --ring: #8b909b;
+    --chart-1: #3987e5;
+    --chart-2: #d95926;
+    --chart-3: #199e70;
+    --chart-4: #c98500;
+    --chart-5: #d55181;
+    --sidebar: #141820;
+    --sidebar-foreground: #ecebe6;
+    --sidebar-primary: #f1ede4;
+    --sidebar-primary-foreground: #101319;
+    --sidebar-accent: #222833;
+    --sidebar-accent-foreground: #ecebe6;
+    --sidebar-border: rgb(255 255 255 / 0.08);
+    --sidebar-ring: #8b909b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    font-optical-sizing: auto;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
